@@ -1,0 +1,67 @@
+<div class="profile-image-dialog">
+    <div class="profile-image-dialog__header-wrapper">
+        <div class="profile-image-dialog__title">Profile image</div>
+        <button
+            class="profile-image-dialog__close"
+            [mat-dialog-close]="false"
+            mat-icon-button>
+                <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <div class="profile-image-dialog__text">
+        <p>Please choose and upload an image for your profile.</p>
+        <div class="profile-image-dialog__choose-image-wrapper">
+            <label class="profile-image-dialog__choose-image-label" for="modal-file">
+                choose image
+            </label>
+            <input class="profile-image-dialog__choose-image-input" type="file" id="modal-file" (change)="fileChange($event)">
+        </div>
+    </div>
+    <div class="profile-image-dialog__validation">
+        <section class="profile-image-dialog__restrictions-wrapper">
+            <p class="profile-image-dialog__restrictions-text">Accepted format: jpeg, jpg, png, gif. Max size allowed: {{ allowedImageSizeInMb }} MB</p>
+        </section>
+        <section class="profile-image-dialog__errors-wrapper">
+            <p *ngIf="fileSizeInMb > 10" class="profile-image-dialog__errors-wrapper__file-size">File size is too big. Please choose another file.</p>
+            <p *ngIf="!isOfCorrectType" class="profile-image-dialog__errors-wrapper__file-type">File type {{ fileType }} is not an allowed image type.</p>
+        </section>
+    </div>
+    <mat-dialog-content *ngIf="fileSizeInMb < 10 && isOfCorrectType">
+        <div class="profile-image-dialog__image-cropping-wrapper">
+            <image-cropper
+                [imageChangedEvent]="imageChangedEvent"
+                [maintainAspectRatio]="true"
+                [aspectRatio]="16 / 9"
+                [resizeToWidth]="150"
+                [cropperMinWidth]="50"
+                [cropperMinHeight]="50"
+                [outputType]="outputType"
+                format="png"
+                (imageCropped)="imageCropped($event)"
+                (imageLoaded)="imageLoaded()">
+            </image-cropper>
+        </div>
+    </mat-dialog-content>
+
+    <div *ngIf="fileSizeInMb < 10 && isOfCorrectType" class="profile-image-dialog__footer">
+        <img class="profile-image-dialog__image-preview" [src]="previewImage">
+
+        <div class="profile-image-dialog__action-buttons-wrapper">
+            <button class="profile-image-dialog__action-button-cancel profile-image-dialog__action-button"
+                    mat-button
+                    mat-flat-button
+                    [mat-dialog-close]="false">
+                cancel
+            </button>
+
+            <button class="profile-image-dialog__action-button-save profile-image-dialog__action-button"
+                    mat-button
+                    mat-flat-button
+                    cdkFocusInitial
+                    (click)="handleSave()">
+                <mat-icon>save</mat-icon>
+                save
+            </button>
+        </div>
+    </div>
+</div>

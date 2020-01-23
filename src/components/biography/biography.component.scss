@@ -1,0 +1,103 @@
+@import '../../assets/scss/variables';
+
+.biography {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.profile-pic-wrapper {
+    font-size: 15px;
+    margin-right: 15px;
+}
+
+.biography-text-wrapper {
+    font-weight: lighter;
+    font-size: 17px;
+    letter-spacing: 0.6px;
+    line-height: 130%;
+    margin-right: 15px;
+    flex: 2;
+}
+
+.comments-wrapper {
+    flex: 1;
+}
+
+.comment-section {
+    margin-bottom: 10px;
+}
+
+.comment-profile-image img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-right: 7px;
+}
+
+.comment-content-wrapper {
+    display: flex;
+    align-items: flex-start;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.comment-text {
+    margin: 0;
+    overflow-wrap: break-word;
+    max-width: 500px;
+}
+
+.comment-date {
+    margin-top: 7px;
+    font-weight: lighter;
+    font-size: 13px;
+    color: rgb(51, 51, 51);
+    letter-spacing: 1px;
+}
+
+.comment-name-author {
+    color: rgb(34, 111, 199);
+    font-weight: bold;
+}
+
+.comment-form {
+    display: flex;
+    align-items: center;
+}
+
+.comment-form mat-icon {
+    padding: 10px;
+    border: 2px solid rgb(255, 145, 0);
+    border-radius: 50%;
+    color: white;
+    background: rgb(245, 160, 2);
+    cursor: pointer;
+    transform: scale(0.8);
+    margin-left: 5px;
+}
+
+.name-age-wrapper, .email-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name-age-wrapper {
+    margin: 10px 0;
+}
+
+.age {
+    margin-left: 5px;
+}
+
+.profile-pic-wrapper img {
+    background-size: cover;
+    width: 13rem;
+    height: 13rem;
+    border-radius: 50%;
+}
+
+mat-form-field {
+    width: 100%;
+}

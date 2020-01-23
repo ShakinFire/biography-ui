@@ -1,0 +1,31 @@
+<div class="navigation-wrapper global-wrapper">
+    <div (click)="goToHome()" class="navigation-wrapper__logo-wrapper">
+        <div>
+            <img class="logo" src="../../assets/img/book-logo.png" />
+        </div>
+        <div>
+            <h3 class="website-name">Biography</h3>
+        </div>
+    </div>
+
+    <div class="navigation-wrapper__menu-button-wrapper">
+        <div *ngIf="user" (click)="goToProfile()" class="menu-profile-image">
+            <img [src]="user.avatarImage">
+        </div>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <mat-menu #menu="matMenu" xPosition="before">
+            <button (click)="goToGallery()" mat-menu-item>
+                <a>Gallery</a>
+            </button>
+            <button (click)="goToProfile()" mat-menu-item>
+                <a>Profile</a>
+            </button>
+            <button mat-menu-item>
+                <a>placeholder_3</a>
+            </button>
+        </mat-menu>
+    </div>
+</div>

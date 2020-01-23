@@ -1,0 +1,65 @@
+@import '../../../assets/scss/variables';
+
+.avatar-section {
+    position: relative;
+    margin-left: 50px;
+    height: 15rem;
+    width: 15rem;
+
+    .avatar {
+        background-size: cover;
+        width: 15rem;
+        height: 15rem;
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    label {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        border-radius: 50%;
+        background: $color-main-blue;
+        padding: 0.5rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        mat-icon {
+            color: white;
+        }
+    }
+}
+
+.profile-edit {
+    display: flex;
+}
+
+.profile-edit-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.form-container mat-form-field {
+    display: block;
+    width: 30vw;
+}
+
+.action-buttons-wrapper {
+    display: flex;
+
+    .save-button {
+        background: rgb(37, 207, 37);
+        color: white;
+        margin-left: 20px;
+    }
+}
+
+.image-input {
+    visibility: hidden;
+}

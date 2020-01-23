@@ -1,0 +1,65 @@
+<div class="profile-edit-wrapper global-wrapper">
+    <div *ngIf="profileForm" class="profile-edit">
+        <div class="form-wrapper">
+            <form [formGroup]="profileForm" class="form-container">
+                <mat-form-field>
+                  <input formControlName="username" matInput placeholder="Username">
+                  <mat-error *ngIf="profileForm?.controls?.username?.errors?.required">
+                    Username is required
+                  </mat-error>
+                </mat-form-field>
+              
+                <mat-form-field>
+                  <input formControlName="name" matInput placeholder="Name">
+                  <mat-error *ngIf="profileForm?.controls?.name?.errors?.required">
+                    Name is required
+                  </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input formControlName="email" matInput placeholder="Email">
+                    <mat-error *ngIf="profileForm?.controls?.email?.errors?.email">
+                        Invalid email address
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <textarea
+                        formControlName="biography"
+                        matInput
+                        cdkTextareaAutosize
+                        cdkAutosizeMinRows="2"
+                        placeholder="Write your biography..."
+                        #autosize="cdkTextareaAutosize"
+                        ></textarea>
+                    <mat-error *ngIf="profileForm?.controls?.biography?.errors?.max">
+                        Biography must contain maximum of 1000 characters.
+                    </mat-error>
+                </mat-form-field>
+            </form>
+        
+            <div class="action-buttons-wrapper">
+                <button (click)="handleCancel()" mat-stroked-button>Cancel</button>
+                <button (click)="handleSave()" class="save-button" mat-stroked-button>Save</button>
+            </div>
+        </div>
+
+        <div class="avatar-section">
+            <figure>
+                <img class="avatar" [src]="profileImageEndpoint">
+
+                <label for="file">
+                    <mat-icon>publish</mat-icon>
+                </label>
+            </figure>
+        </div>
+    </div>
+
+</div>
+
+<!--
+    NOTE: Here we are assigning the 'value' on onclick to be null because when you select the same image
+    twice from the file system - on change event does not trigger. So here we are basically saying that this is a
+    different image by assigning it to null.
+-->
+<input class="image-input" type="file" id="file" (change)="fileChange($event)">

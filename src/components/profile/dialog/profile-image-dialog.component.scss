@@ -1,0 +1,81 @@
+$module: 'profile-image-dialog';
+
+.#{$module} {
+
+    &__image-cropping-wrapper {
+        margin: 1rem 0;
+    }
+
+    &__header-wrapper, &__text, &__validation {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__header-wrapper {
+        margin-bottom: 1.4rem;
+    }
+
+    &__close {
+        text-align: right;
+    }
+
+    &__title {
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    &__text {
+        margin-bottom: 1rem;
+    }
+
+    &__choose-image-label {
+        border: 1px solid #20262e;
+        border-radius: 0.3rem;
+        display: flex;
+        align-items: center;
+        padding: 1rem 0.5rem;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    &__choose-image-input {
+        display: none;
+    }
+
+    &__validation {
+        font-size: 1.2rem;
+    }
+
+    &__errors-wrapper {
+        margin-left: 1rem;
+
+        &__file-size, &__file-type {
+            color: red;
+        }
+    }
+
+    &__restrictions-text {
+        margin-right: 1rem;
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1rem;
+    }
+
+    &__image-preview {
+        width: 241.78px;
+        height: 136px;
+    }
+
+    &__action-button {
+        margin-left: 2rem;
+        text-transform: uppercase;
+    }
+}

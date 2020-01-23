@@ -1,0 +1,48 @@
+<div class="biography global-wrapper">
+    <div class="profile-pic-wrapper">
+        <div *ngIf="currentUser">
+            <img [src]="currentUser.avatarImage">
+        </div>
+        <div class="name-age-wrapper">
+            {{ currentUser?.name }} &#183; <span class="age">{{ currentUser?.age }}</span>
+        </div>
+        <div class="email-wrapper">
+            <mat-icon aria-hidden="false" aria-label="Example home icon">contact_mail</mat-icon>
+            <span>{{ currentUser?.email }}</span>
+        </div>
+    </div>
+
+    <div class="biography-text-wrapper">
+        <p>{{ biography?.content }}</p>
+    </div>
+
+    <div class="comments-wrapper">
+        <mat-card *ngFor="let comment of commentsWithUsers" class="comment-section">
+            <div class="comment-content-wrapper">
+                <div class="comment-profile-image">
+                    <img [src]="comment.user.avatarImage">
+                </div>
+                <div>
+                    <p class="comment-text">
+                        <span class="comment-name-author">{{ comment.user.name }}</span> &#183; {{ comment.content }}
+                    </p>
+                    <div class="comment-date">{{ comment.createdAt | convertTimeFormat }}</div>
+                </div>
+            </div>
+        </mat-card>
+
+        <div class="comment-form">
+            <mat-form-field>
+                <textarea
+                    matInput
+                    cdkTextareaAutosize
+                    [formControl]="commentFormControl"
+                    placeholder="Write a comment..."
+                    #autosize="cdkTextareaAutosize"
+                    ></textarea>
+            </mat-form-field>
+            <mat-icon (click)="handleAddComment()">add_comment</mat-icon>
+        </div>
+    </div>
+
+</div>

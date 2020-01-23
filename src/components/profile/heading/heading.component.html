@@ -1,0 +1,33 @@
+<div class="heading-wrapper">
+    <div class="image-wrapper">
+        <img [src]="user.avatarImage">
+    </div>
+    <div class="profile-information-wrapper">
+        <div class="main-information">
+            <div class="profile-username spacing">
+                {{ user?.username }}
+            </div>
+            <div class="profile-edit">
+                <button (click)="goToProfileEdit()" mat-stroked-button>Profile Edit</button>
+            </div>
+        </div>
+        <div class="post-info">
+            <div class="secondary-info">
+                <div class="profile-name spacing">
+                    {{ user?.name }}
+                </div>
+                <div class="profile-posts spacing">
+                    30 posts
+                </div>
+            </div>
+            <div class="add-photo-wrapper">
+                <label for="test">
+                    <mat-icon>add_photo_alternate</mat-icon>
+                    <span>Add Photo</span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <input class="photo-image-input" type="file" id="test" (change)="handleAddPhoto($event)">
+</div>
