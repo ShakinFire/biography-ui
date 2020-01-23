@@ -105,6 +105,7 @@ export class ProfileEditComponent implements OnInit, OnDestroy {
 
     biographyAndUserRequests$.pipe(takeUntil(this.componentDestroyed$))
       .subscribe(() => {
+        this.userService.currentUser$.next(userToUpdate);
         this.router.navigate(['profile']);
       });
   }

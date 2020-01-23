@@ -21,7 +21,7 @@ export class HeadingComponent implements OnInit, OnDestroy {
     private readonly router: Router,
     private readonly dialog: MatDialog,
     private readonly galleryService: GalleryService,
-  ) { }
+  ) {}
 
   ngOnInit() {
   }
@@ -48,7 +48,8 @@ export class HeadingComponent implements OnInit, OnDestroy {
       takeUntil(this.componentDestroyed$),
     )
     .subscribe(async (imageData) => {
-      await this.galleryService.addGalleryImage(this.user.id, { image: imageData.imageAsBase64 } as IGalleryImage).pipe(first()).toPromise();
+      await this.galleryService
+        .addGalleryImage(this.user.id, { image: imageData.imageAsBase64 } as IGalleryImage).pipe(first()).toPromise();
       this.galleryService.signalPhotoAdd(imageData.imageAsBase64);
     });
   }

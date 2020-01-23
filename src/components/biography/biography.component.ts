@@ -55,7 +55,7 @@ export class BiographyComponent implements OnInit, OnDestroy {
         takeUntil(this.componentDestroyed$)
       )
       .subscribe((comments) => {
-        this.comments = comments.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+        this.comments = comments.sort((a, b) => +new Date(a.createdAt) - +new Date(b.createdAt));
         this.commentsWithUsers = this.comments.reduce((result, currentComment) => {
           const userForCurrentComment = this.users.find((user) => user.id === currentComment.userId);
           const modifiedComment = { ...currentComment, user: userForCurrentComment };
