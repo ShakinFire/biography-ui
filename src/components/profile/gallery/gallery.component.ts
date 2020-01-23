@@ -78,6 +78,7 @@ export class GalleryComponent implements OnInit {
         thumbnailsRows: this.getNumberOfRows(imageCount, 2),
         width: '100%',
         thumbnailsColumns: 2,
+        previewDownload: true,
       },
       // max-width 400
       {
@@ -88,6 +89,7 @@ export class GalleryComponent implements OnInit {
         thumbnailsRows: this.getNumberOfRows(imageCount, 2),
         width: '100%',
         thumbnailsColumns: 2,
+        previewDownload: true,
       },
     ];
   }
