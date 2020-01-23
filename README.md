@@ -4,6 +4,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Requirements to run
 1. Install [Nodejs](https://nodejs.org/en/)
-2. Run `npm install`
-3. Run `npm start`
+2. Run `npm install` in the root project directory
+3. Run `npm start` in the root project directory
 4. Open `localhost:4200`
